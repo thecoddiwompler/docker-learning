@@ -24,11 +24,14 @@ This cheat sheet covers commonly used Docker commands for managing containers an
 - **docker start -a [container_id]**
   - Run or restart a stopped container and print its logs.
 
+- **docker restart [container_id]**
+  - Restart a running or stopped container.
+
 - **docker stop [container_id]**
   - Stop a running container gracefully (SIGTERM).
 
 - **docker kill [container_id]**
-  - Forcefully kill a running container (SIGKILL).
+  - Forcefully kill a running container (SIGKILL).3
 
 - **docker ps**
   - List all running containers.
@@ -81,7 +84,21 @@ This cheat sheet covers commonly used Docker commands for managing containers an
 ## Volume Management
 
 - **docker volume create [volume_name]**
-  - Create a named volume.
+  - Create a named Volume.
 
-- **docker run -d -p 3000:3000 --mount type=volume,src=[volume_name],target=[target_path] [image_name]**
-  - Run a container with a mounted volume. The tag -d specifies that the container would run in detached mode.
+- **docker volume ls**
+  - List all the Volumes.
+
+- **docker inspect [volume_name]**
+  - Inspect the Volume.
+
+- **docker run rm [volume_name]**
+  - Remove the Volume.
+
+- **docker run -d --mount type=volume,src=[volume_name],target=[target_path] [image_name]**
+  - Run a container with a mounted volume. The tag -d specifies that the container would run in detached mode. The [target_path] is the path inside the container which needs to be persisted in the volume.
+
+## Bind Mount
+
+- **docker run -d --mount type=bind,src='[host_path]',target='[container_path]' [image_name]**
+  - Run a container with a bind mount. Do give absolute path for host and target both.
