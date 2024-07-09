@@ -102,3 +102,11 @@ This cheat sheet covers commonly used Docker commands for managing containers an
 
 - **docker run -d --mount type=bind,src='[host_path]',target='[container_path]' [image_name]**
   - Run a container with a bind mount. Do give absolute path for host and target both.
+
+## Miscellaneous
+
+- **docker cp [source_path] [container_name]:[container_path]**
+  - Copy file(s) from source path to container path inside the container.
+
+- **docker cp [container_name]:[container_path] [destination_path]**
+  - Copy file(s) from container to Host machine.
