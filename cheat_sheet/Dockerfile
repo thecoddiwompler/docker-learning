@@ -1,6 +1,10 @@
 # Use Python as base image
 FROM python:latest
 
+# Set the Label
+LABEL maintainer="Indrajeet Mishra" \
+      email="indrajeetmishra54@yahoo.com"
+
 # Add user app and switch to this user
 RUN adduser app
 USER app
