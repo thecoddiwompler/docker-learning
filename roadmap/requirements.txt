@@ -1,2 +1,0 @@
-streamlit
-notion-client==1.0.0

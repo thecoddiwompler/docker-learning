@@ -1,0 +1,20 @@
+# Ignore specific files
+.git
+.gitignore
+.dockerignore
+README.md
+LICENSE
+
+# Ignore specific directories
+node_modules/
+logs/
+temp/
+
+# Ignore Dockerfile specific files
+.dockerignore
+Dockerfile
+Dockerfile*
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
