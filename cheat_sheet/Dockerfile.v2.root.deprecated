@@ -1,0 +1,26 @@
+# Use Python as base image
+FROM python:latest
+
+# Set the Label
+LABEL maintainer="Indrajeet Mishra" \
+      email="indrajeetmishra54@yahoo.com"
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the requirements file from host to the container
+COPY requirements.txt requirements.txt
+
+# Upgrade pip and install dependencies
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+# Copy the Project from Host Relative directory to Container's Working Directory
+COPY . .
+
+# Expose port 8501 (default port for Streamlit apps)
+EXPOSE 8501
+
+# Run the Streamlit app
+ENTRYPOINT [ "streamlit", "run" ]
+CMD [ "app.py" ]
